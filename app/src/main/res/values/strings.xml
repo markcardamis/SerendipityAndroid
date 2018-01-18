@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Serendipity</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="Level1">
+        <item>Show off 1 dance move</item>
+        <item>Do a shot</item>
+        <item>Tell a joke</item>
+        <item>Pretend to be a tourist</item>
+        <item>Rock,paper,scissors for kiss/slap</item>
+        <item>Interest fact about yourself</item>
+    </string-array>
+
+    <string-array name="Level2">
+        <item>Hold hands for 30 seconds</item>
+        <item>Lead date through club</item>
+        <item>What colour underwear are they wearing</item>
+        <item>Favourite sex position</item>
+        <item>Kiss on the neck/ear</item>
+        <item>Do almost kiss</item>
+    </string-array>
+
+    <string-array name="Level3">
+        <item>Snapchat underwear</item>
+        <item>Do a tequila shot</item>
+        <item>French kiss</item>
+        <item>Squeeze boobs for 5 seconds</item>
+        <item>Grab arse</item>
+        <item>Snapchat any area without clothing</item>
+    </string-array>
+
+    <string-array name="Level4">
+        <item>Ask a naughty question</item>
+        <item>Blindfold partner and gently caress</item>
+        <item>Caress each other looking at a mirror</item>
+        <item>Run outside naked</item>
+        <item>Individual orgasm race</item>
+        <item>Go down with an ice cube in your mouth</item>
+    </string-array>
+
+</resources>

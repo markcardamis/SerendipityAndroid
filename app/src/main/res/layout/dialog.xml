@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="20dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    style="@style/Theme.AppCompat.Dialog.Alert">
+
+
+
+    <TextView
+        android:id="@+id/textDialog"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:textColor="#FFF"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        android:lineSpacingExtra="4dp"
+        android:paddingTop="10dp" />
+
+    <Button
+        android:id="@+id/declineButton"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="PLAY"
+        android:layout_below="@+id/textDialog"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/bLevelDownDialog"
+        android:layout_below="@+id/textDialog"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/ic_level_arrow_down"
+        android:background="@null"
+        android:paddingLeft="20dp" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/bLevelUpDialog"
+        android:layout_below="@+id/textDialog"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_level_arrow_up"
+        android:background="@null"
+        android:paddingRight="20dp" />
+
+</RelativeLayout>
