@@ -61,15 +61,14 @@
         android:background="@android:color/black" />
 
     <Button
+        android:id="@+id/bSet5"
         android:layout_width="100dp"
         android:layout_height="115dp"
-        android:id="@+id/bSet5"
-        android:visibility="visible"
-        android:enabled="true"
         android:layout_below="@+id/bSet1"
-        android:layout_toRightOf="@+id/bSet4"
         android:layout_toEndOf="@+id/bSet4"
-        android:background="@android:color/black" />
+        android:background="@android:color/black"
+        android:enabled="true"
+        android:visibility="visible"/>
 
     <Button
         android:layout_width="100dp"
