@@ -84,38 +84,38 @@
         android:background="@android:color/black" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Press dice to roll"
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true"
-        android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        android:textSize="18dp"
-        android:id="@+id/textView"/>
+        android:paddingTop="15dp"
+        android:text="Tap dice to roll"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="infoPageJump"
-        android:src="@drawable/info"
+        android:id="@+id/imageButton"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/bSet6"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/bSet6"
-        android:layout_alignEnd="@+id/bSet6"
         android:background="@android:color/transparent"
-        android:id="@+id/imageButton" />
+        android:onClick="infoPageJump"
+        android:src="@drawable/info"/>
 
     <Button
+        android:id="@+id/bOptionsDialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="[Show Options]"
-        android:id="@+id/bOptionsDialog"
         android:layout_above="@+id/imageButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:textSize="14dp" />
+        android:text="[Show Options]"
+        android:textSize="16sp"/>
 
 </RelativeLayout>

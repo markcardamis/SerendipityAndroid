@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -25,13 +24,11 @@ import java.util.List;
 public class Settings extends Activity{
 
     Switch bNextBase;
-    Button bUpdateData;
     Button bDefaultData;
     EditText etEditText;
     Button bEditText;
     SharedPreferences settingsValues;
     SharedPreferences.Editor editor;
-    Boolean visibilityToggle = Boolean.FALSE;
     LinkedHashMap<String, List<String>> Levels_Category;
     List<String> Levels_List;
     ExpandableListView Exp_List;
@@ -49,12 +46,12 @@ public class Settings extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
 
-        bNextBase = (Switch) findViewById(R.id.bNextBase);
-        bUpdateData = (Button) findViewById(R.id.bUpdateData);
-        bDefaultData = (Button) findViewById(R.id.bDefaultData);
-        Exp_List = (ExpandableListView) findViewById(R.id.exp_list);
-        bEditText = (Button) findViewById(R.id.bEditText);
-        etEditText = (EditText) findViewById(R.id.etEditText);
+        bNextBase = findViewById(R.id.bNextBase);
+        //bUpdateData = findViewById(R.id.bUpdateData);
+        bDefaultData = findViewById(R.id.bDefaultData);
+        Exp_List = findViewById(R.id.exp_list);
+        bEditText = findViewById(R.id.bEditText);
+        etEditText = findViewById(R.id.etEditText);
 
         etEditText.setText(etHelpString);
         intent = getIntent();
@@ -71,9 +68,7 @@ public class Settings extends Activity{
         adapter = new LevelsAdapter(this, Levels_Category, Levels_List);
         Exp_List.setAdapter(adapter);
 
-
-        visibilityToggle = settingsValues.getBoolean("Settings", Boolean.FALSE);
-        if (visibilityToggle)
+        if (settingsValues.getBoolean("Settings", Boolean.TRUE))
             bNextBase.setChecked(Boolean.TRUE);
         else
             bNextBase.setChecked(Boolean.FALSE);
@@ -111,26 +106,26 @@ public class Settings extends Activity{
         });
 
 
-        bUpdateData.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                new DataProviderUpdate(new DataProviderUpdate.AsyncResponse(){
-
-                    @Override
-                    public void processFinish(LinkedHashMap<String, List<String>> output) {
-                        //Here you will receive the result fired from async class
-                        //of onPostExecute(result) method.
-                        Levels_Category = output;
-                        Levels_List = new ArrayList<>(Levels_Category.keySet());
-                        adapter = new LevelsAdapter(Settings.this, Levels_Category, Levels_List);
-                        Exp_List.setAdapter(adapter);
-
-                        student = new Student(Levels_Category);
-                        intent.putExtra("hashmap",student);
-                        setResult(Activity.RESULT_OK, intent);
-                    }
-                }).execute();
-            }
-        });
+//        bUpdateData.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                new DataProviderUpdate(new DataProviderUpdate.AsyncResponse(){
+//
+//                    @Override
+//                    public void processFinish(LinkedHashMap<String, List<String>> output) {
+//                        //Here you will receive the result fired from async class
+//                        //of onPostExecute(result) method.
+//                        Levels_Category = output;
+//                        Levels_List = new ArrayList<>(Levels_Category.keySet());
+//                        adapter = new LevelsAdapter(Settings.this, Levels_Category, Levels_List);
+//                        Exp_List.setAdapter(adapter);
+//
+//                        student = new Student(Levels_Category);
+//                        intent.putExtra("hashmap",student);
+//                        setResult(Activity.RESULT_OK, intent);
+//                    }
+//                }).execute();
+//            }
+//        });
 
 
         bDefaultData.setOnClickListener(new View.OnClickListener() {
@@ -151,13 +146,11 @@ public class Settings extends Activity{
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     editor = settingsValues.edit();
-                    visibilityToggle = Boolean.TRUE;
-                    editor.putBoolean("Settings", visibilityToggle);
+                    editor.putBoolean("Settings", Boolean.TRUE);
                     editor.apply();
                 } else {
                     editor = settingsValues.edit();
-                    visibilityToggle = Boolean.FALSE;
-                    editor.putBoolean("Settings", visibilityToggle);
+                    editor.putBoolean("Settings", Boolean.FALSE);
                     editor.apply();
 
                 }

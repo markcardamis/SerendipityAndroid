@@ -49,3 +49,5 @@ google-services.json
 app/libs/
 app/src/androidTest/
 app/src/test/
+/app/build.gradle
+/gradle/wrapper/gradle-wrapper.properties

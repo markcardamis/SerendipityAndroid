@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
     List<String> Levels_List;
     LevelsAdapter adapter;
     String message;
-    TextView tvDialogMessage;
+    TextView tvDialogMessage, tvTextView;
 
     int level = 1;
     Boolean visibilityToggle;
@@ -63,6 +63,7 @@ public class MainActivity extends Activity {
         bSet5 = (Button)findViewById(R.id.bSet5);
         bSet6 = (Button)findViewById(R.id.bSet6);
         bOptionsDialog = (Button)findViewById(R.id.bOptionsDialog);
+        tvTextView = findViewById(R.id.textView);
 
         settingsValues = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -214,6 +215,8 @@ public class MainActivity extends Activity {
         handler=new Handler(callback);
         handlerDiceRoll = new Handler();
 
+        tvTextView.setText("Tap dice to roll");
+
         // Obtain the shared Tracker instance.
         AnalyticsApplication application = (AnalyticsApplication) getApplication();
         mTracker = application.getDefaultTracker();
@@ -233,6 +236,7 @@ public class MainActivity extends Activity {
     public void HandleClick(View arg0) {
         if(!rolling) {
             rolling=true;
+            tvTextView.setText("");
             start();
             //Start rolling sound
             dice_sound.play(sound_id,1.0f,1.0f,0,0,1.0f);
@@ -427,7 +431,7 @@ public class MainActivity extends Activity {
         level = 1;
         bOptionsDialog.setText(Levels_List.get(level - 1));
 
-        visibilityToggle = settingsValues.getBoolean("Settings", Boolean.FALSE);
+        visibilityToggle = settingsValues.getBoolean("Settings", Boolean.TRUE);
         if (visibilityToggle) {
             bOptionsDialog.setVisibility(View.VISIBLE);
         }
