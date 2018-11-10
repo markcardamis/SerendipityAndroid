@@ -38,6 +38,7 @@ package com.google.android.vending.licensing.util;
  * <p>Note {@link CharBase64} is a GWT-compatible implementation of this
  * class.
  */
+@SuppressWarnings("JavadocReference")
 public class Base64 {
   /** Specify encoding (value is {@code true}). */
   public final static boolean ENCODE = true;

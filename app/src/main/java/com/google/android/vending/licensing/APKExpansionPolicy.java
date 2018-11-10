@@ -17,12 +17,12 @@ package com.google.android.vending.licensing;
  * limitations under the License.
  */
 
-import org.apache.http.NameValuePair;
-import org.apache.http.client.utils.URLEncodedUtils;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.utils.URLEncodedUtils;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -46,6 +46,7 @@ import java.util.Vector;
  * Developers who need more fine grained control over their application's
  * licensing policy should implement a custom Policy.
  */
+@SuppressWarnings("JavadocReference")
 public class APKExpansionPolicy implements Policy {
 
     private static final String TAG = "APKExpansionPolicy";

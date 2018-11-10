@@ -44,5 +44,6 @@ public interface Obfuscator {
      * @return A transformed version of the original data.
      * @throws ValidationException Optionally thrown if a data integrity check fails.
      */
+    @SuppressWarnings("JavadocReference")
     String unobfuscate(String obfuscated, String key) throws ValidationException;
 }
