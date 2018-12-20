@@ -106,7 +106,7 @@ public class Settings extends Activity{
         });
 
 
-//        bUpdateData.setOnClickListener(new View.OnClickListener() {
+//        bUpdateData.setOnClickListener(new View.OnClickListener() { //bUpdateData
 //            public void onClick(View v) {
 //                new DataProviderUpdate(new DataProviderUpdate.AsyncResponse(){
 //

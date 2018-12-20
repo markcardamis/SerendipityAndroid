@@ -2,7 +2,6 @@ package com.majoapps.serendipity;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,13 +11,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by Mark on 13/02/2016.
  */
 public class DataProviderUpdate extends AsyncTask<Void, Void, LinkedHashMap<String, List<String>>>{
 
+    private static final String TAG = HttpHandler.class.getSimpleName();
     LinkedHashMap<String, List<String>> LevelsDetails = new LinkedHashMap<String, List<String>>();
 
     public interface AsyncResponse {
@@ -35,13 +34,12 @@ public class DataProviderUpdate extends AsyncTask<Void, Void, LinkedHashMap<Stri
             protected LinkedHashMap<String, List<String>> doInBackground(Void... arg0) {
                 HttpHandler sh = new HttpHandler();
                 // Making a request to url and getting response
-                String url = "http://www.majoapps.com/files/levels.html";
+                String url = "https://majoapps.com/files/levels.html";
                 String jsonStr = sh.makeServiceCall(url);
 
                 if (jsonStr != null) {
                     try {
                         JSONObject jsonObj = new JSONObject(jsonStr);
-
 
                         // Getting JSON Array node
                         JSONArray LevelsJSONArray = jsonObj.getJSONArray("Levels");
@@ -56,6 +54,8 @@ public class DataProviderUpdate extends AsyncTask<Void, Void, LinkedHashMap<Stri
 
                             // Phone node is JSON Object
                             JSONObject phone = c.getJSONObject(LevelString);
+
+                            Log.i("phone ", phone.toString());
 
                             String Option1 = phone.getString("Option 1");
                             String Option2 = phone.getString("Option 2");
@@ -77,11 +77,12 @@ public class DataProviderUpdate extends AsyncTask<Void, Void, LinkedHashMap<Stri
 
                         }
                     } catch (final JSONException e) {
+                        Log.e(TAG, e.toString());
                     }
 
                 } else {
-                    Log.e("TAG", "Couldn't get json from server.");
-                    }
+                    Log.e(TAG, "Couldn't get json from server.");
+                }
 
                 return LevelsDetails;
             }
